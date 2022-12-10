@@ -3,12 +3,13 @@
 
 /**
  * main - returns alphabets both lower and uppercases
+ *
  * Returns: Always 0 (Success)
  */
 int main(void)
 {
 	int ch = 'a';
-	int CH ='A';
+	int CH = 'A';
 
 	while (ch <= 'z')
 	{
