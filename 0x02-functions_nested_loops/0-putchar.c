@@ -1,7 +1,8 @@
 #include "main.h"
+
 /**
- * main - print -putchar
- * is written by bwave
+ * main - print _putchar
+ * is wriiten by bwave
  * Return: 0
  */
 
@@ -16,5 +17,6 @@ _putchar('h');
 _putchar('a');
 _putchar('r');
 _putchar('\n');
-return  (0);
+return (0);
 }
+
