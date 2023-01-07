@@ -6,11 +6,11 @@
  * @agrv: argument.
  * Return: 0.
  */
-int main(int agrc, char **agr)
+int main(int argc, char **argv)
 {
-	(void)argc;
+	(void)argv;
 
-	printf("%d\n", agrc);
+	printf("%d\n", argc - 1);
 	return (0);
 }
 
