@@ -31,4 +31,18 @@ int main(int argc, char **argv)
 			cents -= 10;
 			continue;
 		}
-		if 
+		if ((cents - 5) >= 0)
+		{
+		cents -= 5;
+	continue;
+		}
+	if ((cents - 2) >= 0)
+	{
+	cents -= 2;
+continue;
+	}
+	cents--;
+	}
+	printf("%d\n", coins);
+	return (0);
+}
