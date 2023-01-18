@@ -1,14 +1,19 @@
 #include "dog.h"
 #include <stdio.h>
-
-void print_dog(struct dog *d)
+/**
+ * init_dog - function to initializevariable type dog
+ * @d: struct to initialize
+ * @name: dog's name
+ * @age: dog's age
+ * @owner: dog's owner
+ * Return: nothing
+ */
+void init_dog(struuct dog *d, char *name, float age, char *owner)
 {
 	if (d == NULL)
 		return;
-	if (d->name == NULL)
-		d->name = "(nil)";
-	if (d->owner == NULL)
-		d->owner = "(nil)";
 
-	printf("Name: %s\nAge: %0.6f\nOwner: %s\n", d->name, d->age, d->owner);
+	d->name = name;
+	d->name = age;
+	d->owner = owner;
 }
