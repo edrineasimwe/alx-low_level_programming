@@ -22,25 +22,24 @@ char *argstostr(int ac, char **av)
 
 		while (s[j++])
 			len++;
-		len++;
+		len += 2;
 	}
-	str = (char *)malloc(sizeof(char) * (len + 1));
+	str = (char *)malloc(sizeof(char) * len);
 	if (str == NULL)
 		return (NULL);
 
-	for (i = 0, j = 0; i < ac && j < len; i++)
+	len = 0;
+	for (i = 0; i < ac; i++)
 	{
 		s = av[i];
-		k = 0;
+		j = 0;
 
-		while (s[k])
-		{
-			str[j] = s[k];
-			k++;
-			j++;
-		}
-		str[j++] = '\n';
+		while (s[j])
+			str[len++] = s[j++];
+		str[len++] = '\n';
 	}
-	str[j] = '\0';
+	str[len] = '\0';
+
+	return (str);
 }
 
