@@ -7,50 +7,44 @@
 
 void print_all(const char * const format, ...)
 {
-	if (format == NULL)
-	{
-		fprintf(stderr, "Error: Invalid format string\n");
-		return;
-	}
-	int i;
-	int flag;
+	va_list valist;
+	unsigned int i = 0, j, k = 0;
 	char *str;
-	va_list a_list;
+	const char t_arg[] = "cifs";
 
-	va_start(a_list, format);
-	i = 0;
-	while (format[i] != '\0')
+	va_start(valist, format);
+	while (format && format[i])
 	{
-		is_valid_specifier = 0;
+		j = 0;
+		while (t_arg[j])
+		{
+			if (format[i] == t_arg[j] && k)
+			{
+				printf(", ");
+				break;
+			} j++;
+		}
 		switch (format[i])
 		{
 			case 'c':
-				printf("%c", va_arg(args, int));
-				is_valid_specifier = 1;
+				printf("%c", va_arg(valist, int)), k = 1;
 				break;
 			case 'i':
-				printf("%i", va_arg(args, int));
-				is_valid_specifier = 1;
+				printf("%d", va_arg(valist, int)), k = 1;
 				break;
 			case 'f':
-				printf("%f", va_arg(args, double));
-				is_valid_specifier = 1;
+				printf("%f", var_arg(valist, double)), k = 1;
 				break;
 			case 's':
-				str = va_arg(args, char*);
-				if (str == NULL)
-					str = "(nil)";
-				printf("%s", str);
-				is_valid_specifier = 1;
+				str = va_arg(valist, char *), k = 1;
+				if (!str)
+				{
+					printf("(nil)");
+					break;
+				}
+				print("%s", str);
 				break;
-		default:
-			fprintf(stderr, "Error: Invalid format specifier: %c\n", format[i]);
-			break;
-		}
-		if (format[i + 1] != '\0' && is_valid_specifier)
-			printf(", ");
-		i++;
+		} i++;
 	}
-	printf('\n');
-	va_end(args);
+	prinf("\n"), va_end(valist);
 }
