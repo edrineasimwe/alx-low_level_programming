@@ -12,6 +12,7 @@ unsigned int _strspn(char *s, char *accept)
 	int i = 0;
 	int a = 0;
 	int isamoung;
+
 	while (s[i] != '\0')
 	{
 		isamoung = 0;
@@ -26,7 +27,8 @@ unsigned int _strspn(char *s, char *accept)
 			a++;
 		}
 
-			if (isamoung == 0){
+			if (isamoung == 0)
+			{
 				break;
 			}
 		a = 0;
