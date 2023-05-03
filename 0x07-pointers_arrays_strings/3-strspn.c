@@ -1,4 +1,4 @@
-#include "maih.h"
+#include "main.h"
 
 /**
  * _strspn - a function that gets the length of a prefix substring
@@ -8,21 +8,34 @@
  */
 unsigned int _strspn(char *s, char *accept)
 {
-	int z = 0, x, y;
+	int size_of_s = sizeof(*s) / sizeof(*(s));
+	int size_of_second = sizeof(*accept) / sizeof(*(accept));
+	int value = 0;
 
-	for (x = 0; s[x] != '\0'; x++)
+	int isamoung = 1;
+
+	for (int i = 0; i < size_of_s; i++)
 	{
-		if (s[x] != 32)
+		isamoung = 0;
+	for (int a = 0; a < size_of_second; a++)
+	{
+		if (*(s + i) == *(accept + a))
 		{
-			for (y = 0; accept[y] != '\0'; y++)
-			{
-				if (s[x] == accept[y])
-					z++;
-			}
+			value++;
+			isamoung = 1;
+			break;
 		}
-		else
-			return (z);
 	}
 
-	return (z);
+	if (isamoung == 1)
+	{
+		continue;
+	}
+	else
+	{
+		break;
+	}
+
+	}
+	return (value);
 }
