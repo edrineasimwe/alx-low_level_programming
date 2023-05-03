@@ -8,34 +8,29 @@
  */
 unsigned int _strspn(char *s, char *accept)
 {
-	int size_of_s = sizeof(*s) / sizeof(*(s));
-	int size_of_second = sizeof(*accept) / sizeof(*(accept));
-	int value = 0;
-
-	int isamoung = 1;
-
-	for (int i = 0; i < size_of_s; i++)
+	unsigned int value = 0;
+	int i = 0;
+	int a = 0;
+	int isamoung;
+	while (s[i] != '\0')
 	{
 		isamoung = 0;
-	for (int a = 0; a < size_of_second; a++)
-	{
-		if (*(s + i) == *(accept + a))
+		while (accept[a] != '\0')
 		{
-			value++;
-			isamoung = 1;
-			break;
+			if (s[i] == accept[a])
+			{
+				isamoung = 1;
+				value++;
+				break;
+			}
+			a++;
 		}
-	}
 
-	if (isamoung == 1)
-	{
-		continue;
-	}
-	else
-	{
-		break;
-	}
-
+			if (isamoung == 0){
+				break;
+			}
+		a = 0;
+		i++;
 	}
 	return (value);
 }
