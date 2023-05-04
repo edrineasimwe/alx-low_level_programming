@@ -25,9 +25,9 @@ void print_diagsums(int *a, int size)
 	position = bound - size;
 	going = size - 1;
 
-	while(position >= size - 1)
+	while (position >= size - 1)
 	{
-		sum2 += *(a + position);		
+		sum2 += *(a + position);
 		position -= going;
 	}
 
