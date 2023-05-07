@@ -15,7 +15,7 @@ char *cap_string(char *s)
 	{
 		if (*(s + i) >= 'a' && *(s + i) <= 'z')
 		{
-			if (i == o)
+			if (i == 0)
 			*(s + i) -= 'a' - 'A';
 
 			else
